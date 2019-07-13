@@ -27,12 +27,8 @@ def lambda_handler(event, context):
 
         Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
     """
-    return {"statusCode": 200, "body": json.dumps(event)}
-
-    """
-    if event.get("path") == "/task":
-        # return {"statusCode": 404}
-        return {"statusCode": 200, "req": event}
+    if event.get("path") != "/task":
+         return {"statusCode": 404}
 
     repository = DynamoDBTaskRepository()
     controller = Controller(repository)
@@ -50,4 +46,3 @@ def lambda_handler(event, context):
         return handler_funcs[method](context, event)
 
     return {"statusCode": 405}
-    """
