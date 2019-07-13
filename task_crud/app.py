@@ -1,5 +1,5 @@
 # import requests
-import json
+import logging
 
 from controller import Controller
 from handler import Handler
@@ -27,9 +27,6 @@ def lambda_handler(event, context):
 
         Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
     """
-    if event.get("path") != "/task":
-         return {"statusCode": 404}
-
     repository = DynamoDBTaskRepository()
     controller = Controller(repository)
     fixtures = Handler(controller)
@@ -45,4 +42,5 @@ def lambda_handler(event, context):
     if method in handler_funcs:
         return handler_funcs[method](context, event)
 
+    logging.error("could not find handler for HTTP method", extra={'method': method})
     return {"statusCode": 405}
