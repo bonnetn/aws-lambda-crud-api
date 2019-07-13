@@ -1,0 +1,8 @@
+{
+  "resource": "/task",
+  "path": "/task",
+  "httpMethod": "GET",
+  "queryStringParameters": {
+    "id": "myid"
+  }
+}

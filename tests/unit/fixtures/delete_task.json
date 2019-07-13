@@ -1,0 +1,7 @@
+{
+  "resource": "/task",
+  "path": "/task",
+  "httpMethod": "DELETE",
+  "body": "{\"id\":\"myid\"}"
+}
+

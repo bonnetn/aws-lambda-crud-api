@@ -1,0 +1,7 @@
+{
+  "resource": "/task",
+  "path": "/task",
+  "httpMethod": "PUT",
+  "body": "{\"content\":\"some content\",\"id\":\"myid\"}"
+}
+
